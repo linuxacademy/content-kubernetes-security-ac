@@ -1,0 +1,20 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": ""
+  },
+  "provisioners": [{
+      "type": "ansible",
+      "playbook_file": "./playbook.yml"
+  }],
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-1",
+    "source_ami": "ami-07463df9bc9338920",
+    "instance_type": "t2.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "ksac-ubuntu-hard"
+  }]
+}
