@@ -1,0 +1,12 @@
+- hosts: all
+  become: true
+  gather_facts: false
+  vars:
+    harden_linux_root_password: Linux@academy
+    harden_linux_deploy_user: deploy
+    harden_linux_deploy_user_password: Linux@cademy
+    harden_linux_deploy_user_home: /home/deploy
+    harden_linux_deploy_user_public_keys:
+      - /home/cloud_user/.ssh/id_rsa.pub
+  roles:
+    - githubixx.harden-linux
