@@ -11,4 +11,4 @@ ssh-keygen -q -f ./.ssh/id_rsa -N ''
 echo "CREATING CLUSTER"
 echo "================="
 kops create cluster --master-size=t2.medium --zones=us-east-1c --name=$KOPS_CLUSTER_NAME --cloud aws\
-  --authorization rbac --topology private --networking canal --ssh-public-key ~/.ssh/id_rsa.pub 
+  --authorization rbac --topology private --bastion --networking canal --ssh-public-key ~/.ssh/id_rsa.pub 
